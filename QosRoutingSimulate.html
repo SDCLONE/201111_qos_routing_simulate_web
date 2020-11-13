@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="./lib/layui/css/layui.css">
+    <link rel="stylesheet" href="./css/msg-div.css">
+    <script src="./lib/layui/layui.js"></script>
+    <script src="./lib/jquery/jquery-3.4.1.min.js"></script>
+    <script src="./lib/echartstool/echarts.min.js"></script>
+    <style>
+        /*body {*/
+        /*    background-color: #F0F0F0;*/
+        /*}*/
+    </style>
+</head>
+<body>
+<div>
+    <div class="body-container">
+        <div class="layui-tab layui-tab-card all-container">
+            <ul class="layui-tab-title">
+                <li class="layui-this">区分服务</li>
+                <li>用户管理</li>
+            </ul>
+            <div class="layui-tab-content">
+                <!--区分服务-->
+                <div class="layui-tab-item layui-show">
+                    <div class="layui-row layui-col-space10">
+                        <!--左侧描述文字和按钮-->
+                        <div class="layui-col-md6 layui-col-lg6">
+                            <div class="msg-div-description-box">
+                                <div class="msg-div-description-title">
+                                    基于安全消息广播需求和共享算法的区分服务
+                                </div>
+                                <ul class="msg-div-description-words">
+                                    <li><i class="layui-icon layui-icon-triangle-r"></i>根据基本安全消息（BSM）的内容（速度、加速度、位置）来计算其广播需求，即车辆的行驶状态。
+                                    </li>
+                                    <li><i class="layui-icon layui-icon-triangle-r"></i>根据车辆行驶状态以及车辆周围密度最终得出车辆的广播需求，达到区分基本安全消息的目的。
+                                    </li>
+                                    <li><i class="layui-icon layui-icon-triangle-r"></i>提出利用共享算法来动态调整竞争窗口值，增加公平性并减少冲突，使得消息更有效传输。
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="msg-div-btn-line">
+                                <div class="layui-col-md4 layui-col-sm4 layui-col-md-offset4 layui-col-sm-offset4">
+                                    <button id="msg-div-simulate-btn" type="button" class="layui-btn layui-btn-fluid">
+                                        开始仿真分析 <i class="layui-icon layui-icon-play"></i>
+                                    </button>
+                                </div>
+                                <div class="layui-col-md2 layui-col-sm2 msg-div-clear-history">
+                                    <a id="clear-history-link">清除历史记录</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!--右侧结果展示部分-->
+                        <div class="layui-col-md6 layui-col-lg6">
+<!--                            <div style="width: 100%; height: 500px; border: 2px solid #000;"></div>-->
+                            <div class="layui-card msg-div-delay-card">
+                                <div class="layui-card-header">时延信息</div>
+                                <div class="layui-card-body">
+                                    卡片式面板面板通常用于非白色背景色的主体内<br>
+                                    从而映衬出边框投影
+                                </div>
+                            </div>
+
+                            <div class="layui-card msg-div-throughput-card">
+                                <div class="layui-card-header">吞吐率信息</div>
+                                <div class="layui-card-body">
+                                    卡片式面板面板通常用于非白色背景色的主体内<br>
+                                    从而映衬出边框投影
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--路由协议-->
+                <div class="layui-tab-item">2</div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    layui.use(['element'], function () {
+        const element = layui.element;
+    })
+
+</script>
+</body>
+</html>

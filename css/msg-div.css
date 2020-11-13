@@ -1,0 +1,75 @@
+.body-container {
+    padding: 40px 100px;
+}
+
+.all-container {
+    min-height: 600px;
+}
+
+.all-container .layui-tab-content {
+    padding: 30px 30px;
+}
+
+.msg-div-description-box {
+    /*border: 1px dashed #000;*/
+    width: 85%;
+    margin: 100px auto 0;
+
+}
+
+.msg-div-description-box .msg-div-description-title {
+    font-size: 30px;
+}
+
+.msg-div-description-box .msg-div-description-words {
+    margin-top: 15px;
+}
+
+.msg-div-description-box .msg-div-description-words li {
+    font-size: 17px;
+    margin-top: 6px;
+}
+
+.msg-div-btn-line {
+    margin-top: 100px;
+    height: 60px;
+    /*border: 1px solid #000;*/
+}
+
+#msg-div-simulate-btn {
+    height: 60px;
+    font-size: 18px;
+    transition: 0.5s;
+}
+
+#msg-div-simulate-btn:hover {
+    transition: 0.5s;
+    border-radius: 16px;
+}
+
+#msg-div-simulate-btn i {
+    line-height: 60px;
+    font-size: 18px;
+}
+
+.msg-div-clear-history {
+    height: 60px;
+}
+
+.msg-div-clear-history a {
+    font-size: 10px;
+    position: absolute;
+    bottom: 0;
+    left: 7px;
+    cursor: pointer;
+    color: #2F4056;
+}
+
+.msg-div-clear-history a:hover {
+    text-decoration: underline;
+}
+
+.msg-div-delay-card, .msg-div-throughput-card {
+    min-height: 320px;
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.2);
+}
