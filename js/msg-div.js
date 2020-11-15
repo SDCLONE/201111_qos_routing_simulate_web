@@ -6,19 +6,93 @@ function moduleInit() {
     $("#msg-div-simulate-btn").click(function () {
         $(".msg-div-tab .not-start-hint").css("display", "none");
         $(".msg-div-tab .loading-hint").css("display", "block");
-        setTimeout(function() {
-            $(".msg-div-tab .loading-hint").css("display", "none");
-            $(".msg-div-delay-content, .msg-div-throughput-content").css("display", "block");
-        }, 2000);
+
+        $.ajax({
+            type: "get",
+            url: "http://" + HOST_ADDR + ":" + MSG_DIV_PORT + "/msgDiv/analyzeMsgDiv",
+            contentType: "application/json",
+            dataType:"json",    //一定要加，否则返回不一定是json对象
+            success: function (rcvMsg) {
+                $(".msg-div-tab .loading-hint").css("display", "none");
+                $(".msg-div-delay-content, .msg-div-throughput-content").css("display", "block");
+                console.log(rcvMsg);
+                renderMsgDivDelayChart(rcvMsg.msgDivDelay);
+                renderMsgDivThroughputChart(rcvMsg.msgDivThroughput);
+            }
+        });
 
     });
 
     //清除记录增加监听
     $("#clear-msg-div-history").click(function () {
-        // $(".msg-div-delay-content, .msg-div-throughput-content").css("display", "none");
-        // // $(".msg-div-tab .loading-hint").css("display", "none");
-        // $(".msg-div-tab .not-start-hint").css("display", "block");
+        layui.use(['layer'], function () {
+            const layer = layui.layer;
+            layer.confirm("是否清除服务区分的生成文件记录?", {icon: 3, title:'提示'}, function(index){
+                //do something
+                $.ajax({
+                    type: "get",
+                    url: "http://" + HOST_ADDR + ":" + MSG_DIV_PORT + "/msgDiv/clearGeneratedFiles",
+                    //没有返回值的话不可以加上dataType = json  或者 contentType = "application/json", 否则会无法进入success函数
+                    success: function () {
+                        // console.log("清除区分服务成功");
+                        // layer.close(index);
+                        layer.closeAll();
+                        layer.msg("清除生成文件成功");
+                    }
+                });
 
+            });
+        })
     })
+}
+
+function renderMsgDivDelayChart(delayData) {
+    // 基于准备好的dom，初始化echarts实例
+    let msgDivDelayChart = echarts.init(document.getElementById("msg-div-delay-chart"));
+
+    let option = {
+        color: ["#3398DB"],
+        xAxis: {
+            type: 'category',
+            data: ['低时延', '中时延', '高时延'],
+            name: '类型'
+        },
+        yAxis: {
+            type: 'value',
+            name: '包数'
+        },
+        tooltip: {
+            trigger: "axis",
+            axisPointer: {
+                type: "shadow"
+            }
+        },
+        grid: {
+            width: "70%",
+            left: "50",
+            top: '15%',
+            height: '70%'
+        },
+        series: [{
+            data: [delayData.lowDelayCount, delayData.middleDelayCount, delayData.highDelayCount],
+            name: "包数",
+            type: 'bar',
+            barWidth: '50%'
+            // backgroundStyle: {
+            //     color: 'rgba(220, 220, 220, 0.8)'
+            // }
+        }]
+    }
+
+    // 使用刚指定的配置项和数据显示图表。
+    msgDivDelayChart.setOption(option);
+
+    //渲染右侧说明信息
+    $("#msg-div-delay-all-count b").html(delayData.allDelayCount);
+    $("#msg-div-delay-avg-delay b").html(delayData.averageDelay);
+}
+
+function renderMsgDivThroughputChart(throughputData) {
+
 }
 

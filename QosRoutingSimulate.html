@@ -21,7 +21,7 @@
         <div class="layui-tab layui-tab-card all-container">
             <ul class="layui-tab-title">
                 <li class="layui-this">区分服务</li>
-                <li>用户管理</li>
+                <li>路由协议</li>
             </ul>
             <div class="layui-tab-content">
                 <!--区分服务-->
@@ -56,7 +56,7 @@
                         <!--右侧结果展示部分-->
                         <div class="layui-col-md6 layui-col-lg6">
                             <div class="layui-card msg-div-delay-card">
-                                <div class="layui-card-header">时延信息</div>
+                                <div class="layui-card-header">时延信息  <a href="#" id="msg-div-delay-help-tips"><i class="layui-icon layui-icon-about"></i></a></div>
                                 <div class="layui-card-body">
                                     <!--没有开始仿真时显示部分-->
                                     <div class="not-start-hint">
@@ -64,9 +64,20 @@
                                     </div>
                                     <!--开始仿真时显示部分-->
                                     <div class="msg-div-delay-content">
-                                        <h2>hello msg-div-delay</h2>
+<!--                                        <div class="layui-row">-->
+                                        <div class="layui-col-md6 layui-col-sm6" id="msg-div-delay-chart"></div>
+                                        <div class="layui-col-md6 layui-col-sm6" id="msg-div-delay-info">
+                                            <div class="layui-card">
+                                                <div class="layui-card-header">信息</div>
+                                                <div class="layui-card-body">
+                                                    <p id="msg-div-delay-all-count">总包数：<b>allCount</b></p>
+                                                    <p id="msg-div-delay-avg-delay">平均时延：<b>avgDelay</b>秒</p>
+                                                </div>
+                                            </div>
+                                        </div>
+<!--                                        </div>-->
                                     </div>
-                                    <!--                                    &lt;!&ndash;异步过程中等待动画部分&ndash;&gt;-->
+                                    <!--异步过程中等待动画部分-->
                                     <div class="loading-hint">
                                         <i class="layui-icon layui-icon-loading layui-anim layui-anim-rotate layui-anim-loop"></i>
                                     </div>
@@ -74,7 +85,7 @@
                             </div>
 
                             <div class="layui-card msg-div-throughput-card">
-                                <div class="layui-card-header">吞吐率信息</div>
+                                <div class="layui-card-header">吞吐率信息 <a href="#" id="msg-div-throughput-help-tips"><i class="layui-icon layui-icon-about"></i></a></div>
                                 <div class="layui-card-body">
                                     <!--没有开始仿真时显示部分-->
                                     <div class="not-start-hint">
@@ -157,8 +168,11 @@
 <script>
     layui.use(['element'], function () {
         const element = layui.element;
-    })
 
+    })
+    const HOST_ADDR = "192.168.142.128";
+    const MSG_DIV_PORT = "8080";
+    const IQRRL_ROUTE_PORT = "8081";
 </script>
 
 <script src="./js/msg-div.js"></script>

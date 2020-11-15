@@ -74,6 +74,17 @@
     box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.2);
 }
 
+#msg-div-delay-help-tips, #msg-div-throughput-help-tips {
+    line-height: 40px;
+    /*font-size: 20px;*/
+    color: #009688;
+    float: right;
+}
+#msg-div-delay-help-tips i, #msg-div-throughput-help-tips i {
+    font-size: 18px;
+}
+
+
 /*.msg-div-delay-card .layui-card-body, .msg-div-throughput-card .layui-card-body {*/
 /*    height: 250px;*/
 /*}*/
@@ -90,17 +101,46 @@
     font-size: 25px;
 }
 
+.msg-div-delay-card .layui-card-body, .msg-div-throughput-card .layui-card-body {
+    position: relative;
+    height: 250px;
+}
+
 .msg-div-delay-content, .msg-div-throughput-content {
-    border: 1px solid #000;
+    /*border: 1px solid #000;*/
     /*height: 250px;*/
     height: 100%;
     display: none;
 }
 
-.msg-div-delay-card .layui-card-body, .msg-div-throughput-card .layui-card-body {
-    position: relative;
-    height: 250px;
+#msg-div-delay-info {
+    height: 100%;
+    /*border: 1px solid #000;*/
 }
+
+#msg-div-delay-info .layui-card {
+    /*width: 80%;*/
+    /*margin-left: auto;*/
+    height: 70%;
+    width: 90%;
+    margin: 10% auto;
+    background-color: floralwhite;
+}
+
+#msg-div-delay-info .layui-card-body {
+    font-size: 18px;
+    line-height: 35px;
+}
+
+#msg-div-delay-info .layui-card-body b{
+    color: #009688;
+}
+
+#msg-div-delay-chart {
+    height: 100%;
+}
+
+
 
 .msg-div-delay-card .loading-hint, .msg-div-throughput-card .loading-hint {
     display: none;
