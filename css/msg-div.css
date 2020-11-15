@@ -44,7 +44,7 @@
 
 #msg-div-simulate-btn:hover {
     transition: 0.5s;
-    border-radius: 16px;
+    border-radius: 20px;
 }
 
 #msg-div-simulate-btn i {
@@ -70,6 +70,51 @@
 }
 
 .msg-div-delay-card, .msg-div-throughput-card {
-    min-height: 320px;
+    /*min-height: 320px;*/
     box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.2);
 }
+
+/*.msg-div-delay-card .layui-card-body, .msg-div-throughput-card .layui-card-body {*/
+/*    height: 250px;*/
+/*}*/
+
+.msg-div-delay-card .not-start-hint, .msg-div-throughput-card .not-start-hint {
+    text-align: center;
+    font-size: 25px;
+    line-height: 250px;
+    /*color: #c2c2c2;*/
+    color: darkgray;
+}
+
+.msg-div-delay-card .not-start-hint i, .msg-div-throughput-card .not-start-hint i {
+    font-size: 25px;
+}
+
+.msg-div-delay-content, .msg-div-throughput-content {
+    border: 1px solid #000;
+    /*height: 250px;*/
+    height: 100%;
+    display: none;
+}
+
+.msg-div-delay-card .layui-card-body, .msg-div-throughput-card .layui-card-body {
+    position: relative;
+    height: 250px;
+}
+
+.msg-div-delay-card .loading-hint, .msg-div-throughput-card .loading-hint {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.05);
+    text-align: center;
+    line-height: 270px; /*需要算上上下padding部分*/
+}
+
+.msg-div-delay-card .loading-hint i, .msg-div-throughput-card .loading-hint i {
+    font-size: 50px;
+}
+

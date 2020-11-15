@@ -5,6 +5,7 @@
     <title>Title</title>
     <link rel="stylesheet" href="./lib/layui/css/layui.css">
     <link rel="stylesheet" href="./css/msg-div.css">
+    <link rel="stylesheet" href="css/iqrrl-route.css">
     <script src="./lib/layui/layui.js"></script>
     <script src="./lib/jquery/jquery-3.4.1.min.js"></script>
     <script src="./lib/echartstool/echarts.min.js"></script>
@@ -24,7 +25,7 @@
             </ul>
             <div class="layui-tab-content">
                 <!--区分服务-->
-                <div class="layui-tab-item layui-show">
+                <div class="layui-tab-item layui-show msg-div-tab">
                     <div class="layui-row layui-col-space10">
                         <!--左侧描述文字和按钮-->
                         <div class="layui-col-md6 layui-col-lg6">
@@ -48,33 +49,105 @@
                                     </button>
                                 </div>
                                 <div class="layui-col-md2 layui-col-sm2 msg-div-clear-history">
-                                    <a id="clear-history-link">清除历史记录</a>
+                                    <a id="clear-msg-div-history">清除历史记录</a>
                                 </div>
                             </div>
                         </div>
                         <!--右侧结果展示部分-->
                         <div class="layui-col-md6 layui-col-lg6">
-<!--                            <div style="width: 100%; height: 500px; border: 2px solid #000;"></div>-->
                             <div class="layui-card msg-div-delay-card">
                                 <div class="layui-card-header">时延信息</div>
                                 <div class="layui-card-body">
-                                    卡片式面板面板通常用于非白色背景色的主体内<br>
-                                    从而映衬出边框投影
+                                    <!--没有开始仿真时显示部分-->
+                                    <div class="not-start-hint">
+                                        <i class="layui-icon layui-icon-tips"></i> 请点击左侧仿真按钮
+                                    </div>
+                                    <!--开始仿真时显示部分-->
+                                    <div class="msg-div-delay-content">
+                                        <h2>hello msg-div-delay</h2>
+                                    </div>
+                                    <!--                                    &lt;!&ndash;异步过程中等待动画部分&ndash;&gt;-->
+                                    <div class="loading-hint">
+                                        <i class="layui-icon layui-icon-loading layui-anim layui-anim-rotate layui-anim-loop"></i>
+                                    </div>
                                 </div>
                             </div>
 
                             <div class="layui-card msg-div-throughput-card">
                                 <div class="layui-card-header">吞吐率信息</div>
                                 <div class="layui-card-body">
-                                    卡片式面板面板通常用于非白色背景色的主体内<br>
-                                    从而映衬出边框投影
+                                    <!--没有开始仿真时显示部分-->
+                                    <div class="not-start-hint">
+                                        <i class="layui-icon layui-icon-tips"></i> 请点击左侧仿真按钮
+                                    </div>
+                                    <!--开始仿真时显示部分-->
+                                    <div class="msg-div-throughput-content">
+                                        <h2>hello msg-div-throughput</h2>
+                                    </div>
+
+                                    <!--                                    &lt;!&ndash;异步过程中等待动画部分&ndash;&gt;-->
+                                    <div class="loading-hint">
+                                        <i class="layui-icon layui-icon-loading layui-anim layui-anim-rotate layui-anim-loop"></i>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <!--路由协议-->
-                <div class="layui-tab-item">2</div>
+                <div class="layui-tab-item iqrrl-route-tab">
+                    <!--左侧描述文字和按钮-->
+                    <div class="layui-col-md6 layui-col-lg6">
+                        <div class="iqrrl-route-description-box">
+                            <div class="iqrrl-route-description-title">
+                                基于可变交叉路口和强化学习的路由机制
+                            </div>
+                            <ul class="iqrrl-route-description-words">
+                                <li><i class="layui-icon layui-icon-triangle-r"></i>采用把整体最优问题拆分成两个子最优问题的方式，即先选道路交叉口，再选道路内下一跳，来保障整体方案的实时最优。
+                                </li>
+                                <li><i class="layui-icon layui-icon-triangle-r"></i>综合考虑道路连接度、时延以及距离来选择最佳的下一个道路交叉口，以尽力的避免局部最优问题。
+                                </li>
+                                <li><i class="layui-icon layui-icon-triangle-r"></i>在道路内采用强化学习来感知快速变化的拓扑并评估相邻节点的长期决策。
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="iqrrl-route-btn-line">
+                            <div class="layui-col-md4 layui-col-sm4 layui-col-md-offset4 layui-col-sm-offset4">
+                                <button id="iqrrl-route-simulate-btn" type="button"
+                                        class="layui-btn layui-btn-normal layui-btn-fluid">
+                                    开始仿真分析 <i class="layui-icon layui-icon-play"></i>
+                                </button>
+                            </div>
+                            <div class="layui-col-md2 layui-col-sm2 msg-div-clear-history">
+                                <a id="iqrrl-route-clear-history">清除历史记录</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!--右侧仿真结果部分-->
+                    <div class="layui-col-md6 layui-col-lg6">
+                        <div class="layui-card iqrrl-route-topo-card">
+                            <div class="layui-card-header">
+                                路由结果拓扑展示
+                            </div>
+                            <div class="layui-card-body">
+                                <!--仿真未开始提示部分-->
+                                <div class="not-start-hint">
+                                    <i class="layui-icon layui-icon-tips"></i> 请点击左侧仿真按钮
+                                </div>
+                                <!--仿真进行中loading部分-->
+                                <div class="loading-hint">
+                                    <i class="layui-icon layui-icon-loading-1 layui-anim layui-anim-rotate layui-anim-loop"></i>
+                                </div>
+                                <!--仿真结果展示部分-->
+                                <div class="iqrrl-route-content">
+                                    <h2>这里显示route content</h2>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </div>
     </div>
@@ -87,5 +160,8 @@
     })
 
 </script>
+
+<script src="./js/msg-div.js"></script>
+<script src="./js/iqrrl-route.js"></script>
 </body>
 </html>
