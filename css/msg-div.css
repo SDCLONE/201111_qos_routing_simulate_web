@@ -113,17 +113,17 @@
     display: none;
 }
 
-#msg-div-delay-info {
+#msg-div-delay-info, #msg-div-throughput-info {
     height: 100%;
     /*border: 1px solid #000;*/
 }
 
-#msg-div-delay-info .layui-card {
+#msg-div-delay-info .layui-card, #msg-div-throughput-info .layui-card {
     /*width: 80%;*/
     /*margin-left: auto;*/
     height: 70%;
     width: 90%;
-    margin: 10% auto;
+    margin: 15% auto;
     background-color: floralwhite;
 }
 
@@ -132,12 +132,18 @@
     line-height: 35px;
 }
 
-#msg-div-delay-info .layui-card-body b{
+#msg-div-throughput-info .layui-card-body {
+    font-size: 17px;
+    line-height: 35px;
+}
+
+#msg-div-delay-info .layui-card-body b, #msg-div-throughput-info .layui-card-body b{
     color: #009688;
 }
 
-#msg-div-delay-chart {
+#msg-div-delay-chart, #msg-div-throughput-chart {
     height: 100%;
+    /*border: 1px solid #000;*/
 }
 
 

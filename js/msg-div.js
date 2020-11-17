@@ -77,7 +77,7 @@ function renderMsgDivDelayChart(delayData) {
             data: [delayData.lowDelayCount, delayData.middleDelayCount, delayData.highDelayCount],
             name: "包数",
             type: 'bar',
-            barWidth: '50%'
+            barWidth: '40%'
             // backgroundStyle: {
             //     color: 'rgba(220, 220, 220, 0.8)'
             // }
@@ -89,10 +89,64 @@ function renderMsgDivDelayChart(delayData) {
 
     //渲染右侧说明信息
     $("#msg-div-delay-all-count b").html(delayData.allDelayCount);
-    $("#msg-div-delay-avg-delay b").html(delayData.averageDelay);
+    $("#msg-div-delay-avg-delay b").html(delayData.averageDelay.toFixed(3));
 }
 
-function renderMsgDivThroughputChart(throughputData) {
 
+
+function renderMsgDivThroughputChart(throughputData) {
+// 基于准备好的dom，初始化echarts实例
+    let msgDivThroughputChart = echarts.init(document.getElementById("msg-div-throughput-chart"));
+
+    //将X坐标和Y坐标组装成坐标点
+    const numCount = throughputData.intervalXAxisArr.length;
+    let allPoints = [];
+    let onePoint = [];
+    for (let i = 0; i < numCount; i++) {
+        onePoint.push(throughputData.intervalXAxisArr[i]);
+        onePoint.push(throughputData.intervalThroughputRatesKBArr[i].toFixed(3));
+        allPoints.push(onePoint);
+        onePoint = [];
+    }
+
+    // console.log(numCount);
+    console.log(allPoints);
+    let option = {
+        // color: ["#3398DB"],
+        xAxis: {
+            type: 'value',
+            name: '时间(s)'
+        },
+        yAxis: {
+            type: 'value',
+            name: '吞吐率(KB/s)'
+        },
+        tooltip: {
+            trigger: "axis",
+            axisPointer: {
+                type: "shadow"
+            }
+        },
+        grid: {
+            width: "70%",
+            left: "50",
+            top: '15%',
+            height: '70%'
+        },
+        series: [{
+            data: allPoints,
+            // name: "包数",
+            type: 'line',
+            smooth: 'true'
+        }]
+    }
+
+    // 使用刚指定的配置项和数据显示图表。
+    msgDivThroughputChart.setOption(option);
+
+    //渲染右侧说明信息
+    let averageThroughputRateKB = throughputData.averageThroughputRate / 1000;
+    $("#msg-div-avg-throughput-rate b").html(averageThroughputRateKB.toFixed(3));
+    $("#msg-div-simulate-time b").html(throughputData.totalSimulationTime.toFixed(3));
 }
 

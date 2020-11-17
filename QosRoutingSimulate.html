@@ -49,14 +49,14 @@
                                     </button>
                                 </div>
                                 <div class="layui-col-md2 layui-col-sm2 msg-div-clear-history">
-                                    <a id="clear-msg-div-history">清除历史记录</a>
+                                    <a id="clear-msg-div-history" >清除历史记录</a>
                                 </div>
                             </div>
                         </div>
                         <!--右侧结果展示部分-->
                         <div class="layui-col-md6 layui-col-lg6">
                             <div class="layui-card msg-div-delay-card">
-                                <div class="layui-card-header">时延信息  <a href="#" id="msg-div-delay-help-tips"><i class="layui-icon layui-icon-about"></i></a></div>
+                                <div class="layui-card-header">时延信息  <a href="javascript:" id="msg-div-delay-help-tips" title="帮助"><i class="layui-icon layui-icon-about"></i></a></div>
                                 <div class="layui-card-body">
                                     <!--没有开始仿真时显示部分-->
                                     <div class="not-start-hint">
@@ -65,13 +65,13 @@
                                     <!--开始仿真时显示部分-->
                                     <div class="msg-div-delay-content">
 <!--                                        <div class="layui-row">-->
-                                        <div class="layui-col-md6 layui-col-sm6" id="msg-div-delay-chart"></div>
-                                        <div class="layui-col-md6 layui-col-sm6" id="msg-div-delay-info">
+                                        <div class="layui-col-md7 layui-col-sm7" id="msg-div-delay-chart"></div>
+                                        <div class="layui-col-md5 layui-col-sm5" id="msg-div-delay-info">
                                             <div class="layui-card">
                                                 <div class="layui-card-header">信息</div>
                                                 <div class="layui-card-body">
                                                     <p id="msg-div-delay-all-count">总包数：<b>allCount</b></p>
-                                                    <p id="msg-div-delay-avg-delay">平均时延：<b>avgDelay</b>秒</p>
+                                                    <p id="msg-div-delay-avg-delay">平均时延：<b>avgDelay</b> s</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -85,7 +85,7 @@
                             </div>
 
                             <div class="layui-card msg-div-throughput-card">
-                                <div class="layui-card-header">吞吐率信息 <a href="#" id="msg-div-throughput-help-tips"><i class="layui-icon layui-icon-about"></i></a></div>
+                                <div class="layui-card-header">吞吐率信息 <a href="javascript:" id="msg-div-throughput-help-tips" title="帮助"><i class="layui-icon layui-icon-about"></i></a></div>
                                 <div class="layui-card-body">
                                     <!--没有开始仿真时显示部分-->
                                     <div class="not-start-hint">
@@ -93,7 +93,17 @@
                                     </div>
                                     <!--开始仿真时显示部分-->
                                     <div class="msg-div-throughput-content">
-                                        <h2>hello msg-div-throughput</h2>
+<!--                                        <h2>hello msg-div-throughput</h2>-->
+                                        <div class="layui-col-md7 layui-col-sm7" id="msg-div-throughput-chart"></div>
+                                        <div class="layui-col-md5 layui-col-sm5" id="msg-div-throughput-info">
+                                            <div class="layui-card">
+                                                <div class="layui-card-header">信息</div>
+                                                <div class="layui-card-body">
+                                                    <p id="msg-div-avg-throughput-rate">总吞吐率：<b>602.35</b> KB/s</p>
+                                                    <p id="msg-div-simulate-time">总仿真时间：<b>9.989</b> s</p>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
 
                                     <!--                                    &lt;!&ndash;异步过程中等待动画部分&ndash;&gt;-->
