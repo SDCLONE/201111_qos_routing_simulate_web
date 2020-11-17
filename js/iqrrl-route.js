@@ -8,28 +8,23 @@ function moduleInit() {
         $(".iqrrl-route-tab .not-start-hint").css("display", "none");
         $(".iqrrl-route-tab .loading-hint").css("display", "block");
 
-        // $.ajax({
-        //     type: "get",
-        //     url: "http://" + HOST_ADDR + ":" + ,
-        //     contentType: "application/json",
-        //     dataType:"json",    //一定要加，否则返回不一定是json对象
-        //     success: function (msg) {
-        //
-        //         //如果session中存有信息
-        //         if (msg.status === 0) {
-        //             console.log(msg);
-        //             window.location.href = "/modules/service1";
-        //         } else {
-        //             console.log(msg);
-        //         }
-        //     }
-        // });
+        $.ajax({
+            type: "get",
+            url: "http://" + HOST_ADDR + ":" + IQRRL_ROUTE_PORT + "/iqrrl/analyzeIqrrlTrace",
+            contentType: "application/json",
+            dataType:"json",    //一定要加，否则返回不一定是json对象
+            success: function (rcvMsg) {
+                $(".iqrrl-route-tab .loading-hint").css("display", "none");
+                $(".iqrrl-route-content").css("display", "block")
+                console.log(rcvMsg);
+            }
+        });
 
-        //模拟延迟
-        setTimeout(function () {
-            $(".iqrrl-route-tab .loading-hint").css("display", "none");
-            $(".iqrrl-route-content").css("display", "block")
-        }, 2000);
+        // //模拟延迟
+        // setTimeout(function () {
+        //     $(".iqrrl-route-tab .loading-hint").css("display", "none");
+        //     $(".iqrrl-route-content").css("display", "block")
+        // }, 2000);
 
     });
 

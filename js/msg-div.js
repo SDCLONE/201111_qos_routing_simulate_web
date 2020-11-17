@@ -43,7 +43,36 @@ function moduleInit() {
 
             });
         })
-    })
+    });
+
+    //帮助链接增加监听
+    $("#msg-div-delay-help-tips i").mouseover(function () {
+        layui.use(['layer'], function () {
+            const layer = layui.layer;
+            layer.tips("低时延：小于0.001s<br>中时延：0.001s ~ 3s<br>高时延：大于3s", "#msg-div-delay-help-tips", {tips: 4});
+        })
+    });
+
+    $("#msg-div-delay-help-tips i").mouseout(function () {
+        layui.use(['layer'], function () {
+            const layer = layui.layer;
+            layer.closeAll();
+        })
+    });
+
+    $("#msg-div-throughput-help-tips i").mouseover(function () {
+        layui.use(['layer'], function () {
+            const layer = layui.layer;
+            layer.tips("统计间隔: 0.5s", "#msg-div-throughput-help-tips", {tips: 4});
+        })
+    });
+
+    $("#msg-div-throughput-help-tips i").mouseout(function () {
+        layui.use(['layer'], function () {
+            const layer = layui.layer;
+            layer.closeAll();
+        })
+    });
 }
 
 function renderMsgDivDelayChart(delayData) {
@@ -92,8 +121,6 @@ function renderMsgDivDelayChart(delayData) {
     $("#msg-div-delay-avg-delay b").html(delayData.averageDelay.toFixed(3));
 }
 
-
-
 function renderMsgDivThroughputChart(throughputData) {
 // 基于准备好的dom，初始化echarts实例
     let msgDivThroughputChart = echarts.init(document.getElementById("msg-div-throughput-chart"));
@@ -122,7 +149,7 @@ function renderMsgDivThroughputChart(throughputData) {
             name: '吞吐率(KB/s)'
         },
         tooltip: {
-            trigger: "axis",
+            trigger: "item",
             axisPointer: {
                 type: "shadow"
             }
@@ -135,7 +162,7 @@ function renderMsgDivThroughputChart(throughputData) {
         },
         series: [{
             data: allPoints,
-            // name: "包数",
+            name: "吞吐率",
             type: 'line',
             smooth: 'true'
         }]
