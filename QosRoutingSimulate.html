@@ -171,7 +171,26 @@
 
                             </div>
                         </div>
-<!---->
+                        <!--路由时延吞吐率表格展示-->
+                        <div class="layui-card iqrrl-route-info-card">
+                            <div class="layui-card-header">相关数据信息</div>
+                            <div class="layui-card-body">
+                                <!--仿真未开始提示部分-->
+                                <div class="not-start-hint">
+                                    <i class="layui-icon layui-icon-tips"></i> 请点击左侧仿真按钮
+                                </div>
+                                <!--仿真进行中loading部分-->
+                                <div class="loading-hint">
+                                    <i class="layui-icon layui-icon-loading-1 layui-anim layui-anim-rotate layui-anim-loop"></i>
+                                </div>
+                                <!-- 据表格部分-->
+                                <table id="iqrrl-info-table" class="iqrrl-info-table" lay-filter="iqrrl-info-table"></table>
+                            </div>
+                        </div>
+                        <!--                        <div class="layui-card">-->
+                        <!--                            <div class="layui-card-header">hello</div>-->
+                        <!--                            <div class="layui-card-body" style="height: 200px; border: 1px solid #000;"></div>-->
+                        <!--                        </div>-->
                     </div>
 
                 </div>
